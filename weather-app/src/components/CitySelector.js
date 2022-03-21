@@ -7,7 +7,8 @@ const CitySelector = ({onSearch}) => {
       <>
         <Row>
           <Col>
-            <h1>Search your city</h1>
+            <h1>Weather App</h1>
+            <h2>Search:</h2>
           </Col>
         </Row>
 
@@ -23,7 +24,7 @@ const CitySelector = ({onSearch}) => {
 
         <Row>
           <Col>
-            <Button onClick={() => onSearch(city)}>See Forecast</Button>
+            <Button onClick={() => onSearch(city)}>Enter</Button>
           </Col>
         </Row>
       </>
