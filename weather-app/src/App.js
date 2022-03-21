@@ -20,6 +20,7 @@ const App = () => {
   
   return (
     <Container className="App">
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
       <CitySelector onSearch={(city) => setUrl(`${api_url}/data/2.5/forecast?q=${city}&appid=${api_key}&units=imperial`)} />
       {getContent()}
     </Container>
