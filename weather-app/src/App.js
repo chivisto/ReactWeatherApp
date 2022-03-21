@@ -7,7 +7,7 @@ import WeatherList from './components/WeatherList';
 
 const App = () => {
   const api_key = '1852e77cf37dc313345e20cf7c16fee9';
-  const api_url = 'http://api.openweathermap.org/';
+  const api_url = 'https://api.openweathermap.org/';
 
   const {data, error, isLoading, setUrl} = UseFetch();
 
