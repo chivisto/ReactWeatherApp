@@ -7,8 +7,8 @@ import WeatherList from './components/WeatherList';
 
 
 const App = () => {
-  const api_key = '1852e77cf37dc313345e20cf7c16fee9';
-  const api_url = 'https://api.openweathermap.org/';
+  const key = '1852e77cf37dc313345e20cf7c16fee9';
+  const url = 'https://api.openweathermap.org/';
 
   const {data, error, isLoading, setUrl} = UseFetch();
 
@@ -22,7 +22,7 @@ const App = () => {
   return (
     <Container className="App">
       <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
-      <CitySelector onSearch={(city) => setUrl(`${api_url}/data/2.5/forecast?q=${city}&appid=${api_key}&units=imperial`)} />
+      <CitySelector onSearch={(city) => setUrl(`${url}/data/2.5/forecast?q=${city}&appid=${key}&units=imperial`)} />
       {getContent()}
     </Container>
   );
