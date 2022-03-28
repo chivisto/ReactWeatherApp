@@ -134,7 +134,7 @@ const CitySelector = ({onSearch}) => {
     <>
       <Row>
         <Col>
-          <h1>Weather App</h1>
+          <h1>Weather App Isaac</h1>
           <h2>Search:</h2>
         </Col>
       </Row>
