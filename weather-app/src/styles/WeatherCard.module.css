@@ -1,10 +1,28 @@
 .Card {
-  background: rgba(143, 123, 33, 0.753);
+  background: rgba(224, 143, 49, 0.897);
   border-radius: 10px;
   width: 300px;
   display: block;
   margin: 5px auto;
 }
+
+.celMin{
+  display: none;
+}
+.celMax{
+  display: none;
+}
+
+button{
+  border: none;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: rgb(107, 156, 141);
+  color: white;
+}
+
+button:hover{
+  background-color: rgb(71, 127, 153);}
 
 
 @media screen and (min-width: 64rem) {

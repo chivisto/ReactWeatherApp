@@ -9,3 +9,10 @@ body {
 .btn-primary:hover{
   background-color: rgb(55, 94, 72);;
 }
+
+.celMin{
+  display: none;
+}
+.celMax{
+  display: none;
+}

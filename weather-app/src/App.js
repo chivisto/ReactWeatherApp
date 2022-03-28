@@ -1,12 +1,12 @@
+import './App.css';
 import {useState, useEffect} from 'react';
 import {Row, Col, FormControl, Button} from 'react-bootstrap';
-import './App.css';
 import {Container} from 'react-bootstrap';
 import classes from './styles/WeatherCard.module.css'
 import { Card } from 'react-bootstrap';
 
 
-
+//Using Api
 const App = () => {
   const key = '1852e77cf37dc313345e20cf7c16fee9';
   const url = 'https://api.openweathermap.org/';
@@ -63,24 +63,65 @@ const App = () => {
         </Row>
     )
 }
+
+//card + converter of F or C
 const WeatherCard = ({ dt, temp_min, temp_max}) => {
   const date = new Date(dt);
 
   const roundMax = Math.round(temp_max);
   const roundMin = Math.round(temp_min);
 
+  let jsonNumberMin = parseInt(roundMin);
+  let jsonNumberMax = parseInt(roundMax);
+
+  const celsMax = Math.round((jsonNumberMax - 32) * .5556);
+  const celsMin = Math.round((jsonNumberMin - 32) * .5556);
+
+  function convertFunction() {
+    const y = document.getElementsByClassName("celMin");
+    const x = document.getElementsByClassName("fernMin");
+
+    const b = document.getElementsByClassName("celMax");
+    const a = document.getElementsByClassName("fernMax");
+    
+    for(let i = 0; i < y.length && x.length; i++){
+      if (x[i].style.display === "none") {
+        x[i].style.display = "block";
+        y[i].style.display = "none";
+      } else {
+        x[i].style.display = "none";
+        y[i].style.display = "block";
+      }
+    }
+
+    for(let i = 0; i < b.length && a.length; i++){
+      if (a[i].style.display === "none") {
+        a[i].style.display = "block";
+        b[i].style.display = "none";
+      } else {
+        a[i].style.display = "none";
+        b[i].style.display = "block";
+      }
+    }
+  }
+
   return (
     <div className={classes.Card}>
       <Card.Body>
         <p>
-          <span style={{ fontSize: '1rem', fontWeight: '500' }}>
+          <span style={{fontSize: '1.5rem' }}>
             {date.toLocaleTimeString()}
           </span>
           <br />
           {date.toLocaleDateString()}
         </p>
-        <p>Lows: {roundMin}°</p>
-        <p>Highs: {roundMax}°</p>
+        <p>Lows:</p>
+        <p className="fernMin">{roundMin}°F</p>
+        <p className="celMin">{celsMin}°C</p>
+        <p>Highs:</p>
+        <p className="fernMax">{roundMax}°F</p>
+        <p className="celMax">{celsMax}°C</p>
+        <button onClick={convertFunction}>Convert °F / °C</button>
       </Card.Body>
     </div>
   );
